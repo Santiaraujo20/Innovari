@@ -5,17 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class SignoVital extends Model
+class ParametrosAntropometricos extends Model
 {
     use HasFactory;
 
     protected $fillable = [
         'paciente_id',
-        'presion_arterial',
-        'frecuencia_cardiaca',
-        'frecuencia_respiratoria',
-        'temperatura',
-        'saturacion_oxigeno',
+        'peso',
+        'altura',
+        'imc',
     ];
 
     public function paciente()

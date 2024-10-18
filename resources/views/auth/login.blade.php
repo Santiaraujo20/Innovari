@@ -10,9 +10,8 @@
     <link rel="shortcut icon" href="{{ asset('images/icono.svg') }}" type="image/x-icon">
 </head>
 <body class="flex items-center justify-center h-screen bg-blue-100 bg-no-repeat bg-cover" style="background-image: url('{{ asset('images/Fondo_Enfermeria.jpg') }}');">
-    <div class="p-8 bg-white rounded-lg shadow-md w-96 backdrop-filter backdrop-blur-lg bg-opacity-80">
-        <div class="mb-6 text-center">
-            <img src="{{ asset('images/icono.svg') }}" alt="Logo" class="h-20 mx-auto">
+    <d class="p-8 bg-white rounded-lg shadow-md w-96 backdrop-filter backdrop-blur-lg bg-opacity-80">
+    <img src="{{ asset('images/icono.svg') }}" alt="Logo" class="w-auto h-24 mx-auto">
             <h2 class="mt-4 text-2xl font-bold text-gray-800">Iniciar Sesión</h2>
         </div>
         <form method="POST" action="{{ route('login') }}">
