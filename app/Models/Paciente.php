@@ -7,22 +7,39 @@ use Illuminate\Database\Eloquent\Model;
 
 class Paciente extends Model
 {
-    // Relación uno a muchos con SignosVitales
+    use HasFactory;
+
+    // Atributos permitidos para asignación masiva
+    protected $fillable = [
+        'nombre_completo',
+        'apellido',
+        'edad',
+        'fecha_nacimiento',
+        'sexo',
+        'estado_civil',
+        'lugar_origen',
+        'nivel_estudio',
+        'ocupacion',
+        'anos_puesto',
+        // Añadir otros campos según sea necesario
+    ];
+
+    // Relación uno a muchos con SignoVital
     public function signosVitales()
     {
-        return $this->hasMany(SignosVitales::class);
+        return $this->hasMany(SignoVital::class); // Cambiado a SignoVital
     }
 
     // Relación uno a uno con AntecedentesFamiliares
     public function antecedentesFamiliares()
     {
-        return $this->hasOne(AntecedentesFamiliares::class);
+        return $this->hasOne(AntecedenteFamiliar::class);
     }
 
     // Relación uno a uno con AntecedentesPersonales
     public function antecedentesPersonales()
     {
-        return $this->hasOne(AntecedentesPersonales::class);
+        return $this->hasOne(AntecedentePersonal::class);
     }
 
     // Relación uno a muchos con Medicacion
@@ -37,4 +54,3 @@ class Paciente extends Model
         return $this->hasMany(Intervencion::class);
     }
 }
-
