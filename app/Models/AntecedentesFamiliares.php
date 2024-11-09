@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class AntecedenteFamiliar extends Model
+class AntecedentesFamiliares extends Model
 {
     use HasFactory;
 
@@ -19,9 +19,11 @@ class AntecedenteFamiliar extends Model
         'otros',
     ];
 
+    public $table = 'antecedentes_familiares';
+
     // Relación con el modelo Paciente
-    //public function paciente()
-    //{
-        //return $this->belongsTo(Paciente::class);
-    //}
+    public function paciente()
+    {
+        return $this->belongsTo(Paciente::class);
+    }
 }

@@ -23,7 +23,6 @@
             </div>
 
             <div class="w-full px-6 py-4 mt-6 bg-white border border-blue-300 rounded-lg shadow-md sm:max-w-md">
-                <h1 class="mb-4 text-2xl font-bold text-center text-gray-700">{{ __('Nuevo Usuario') }}</h1>
                 {{ $slot }}
             </div>
         </div>

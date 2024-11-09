@@ -17,7 +17,6 @@
                             <img src="{{ asset('../../../images/dashboeard.png') }}" alt="Crear nuevo paciente" class="w-6 h-6 mr-2" />
                             Crear nuevo paciente
                         </a>
-
                     </div>
 
                     <!-- Botón para ver la lista de pacientes con icono de lista -->
@@ -35,8 +34,11 @@
                         <!-- Estadísticas de pacientes -->
                         <div class="p-6 bg-white border border-gray-200 rounded-lg shadow-sm">
                             <h4 class="mb-3 text-lg font-medium text-gray-700">Estadísticas de Pacientes</h4>
-                            <p class="text-gray-500">Total pacientes: <strong>120</strong></p>
-                            <p class="text-gray-500">Último registrado: <strong>Juan Pérez</strong></p>
+                            <p class="text-gray-500">Total pacientes: <strong>{{ $totalPacientes }}</strong></p>
+                            <p class="text-gray-500">
+                                Último registrado:
+                                <strong>{{ $ultimoPaciente ? $ultimoPaciente->nombre_completo . ' ' . $ultimoPaciente->apellido : 'No disponible' }}</strong>
+                            </p>
                         </div>
 
                         <!-- Otra sección para cualquier información adicional -->

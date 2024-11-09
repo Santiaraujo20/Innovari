@@ -10,6 +10,12 @@
             <div class="bg-white shadow-sm sm:rounded-lg">
                 <div class="p-6 border-b border-gray-200 bg-gray-50">
 
+                    <!-- Mostrar total de pacientes con un diseño más atractivo -->
+                    <div class="p-6 mb-4 bg-white border border-gray-200 rounded-lg shadow-sm">
+                        <h4 class="mb-2 text-lg font-semibold text-gray-700">Estadísticas de Pacientes</h4>
+                        <p class="text-xl font-bold text-gray-900">Total de pacientes: <span class="text-indigo-600">{{ $totalPacientes }}</span></p>
+                    </div>
+
                     <!-- Botón para crear un nuevo paciente -->
                     <div class="mb-4">
                         <a href="{{ route('paciente.create') }}" class="inline-flex items-center px-4 py-2 text-white transition duration-300 bg-red-600 rounded-md shadow hover:bg-red-800">

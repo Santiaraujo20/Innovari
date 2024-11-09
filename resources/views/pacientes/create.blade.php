@@ -19,7 +19,7 @@
                                 <x-input-group label="Nombre" name="nombre_completo" required />
                                 <x-input-group label="Apellido" name="apellido" required />
                                 <x-input-group label="Fecha de Nacimiento" name="fecha_nacimiento" id="fecha_nacimiento" type="date" required onchange="calcularEdad()" />
-                                <x-input-group label="Edad Actual" name="edad" id="edad_actual" type="number" readonly />
+                                <x-input-group label="Edad Actual" name="edad" id="edad_actual" type="number" required />
                                 <x-select-group label="Sexo" name="sexo" :options="['Masculino', 'Femenino']" required />
                                 <x-select-group label="Estado Civil" name="estado_civil" :options="['Soltero/a', 'Casado/a', 'Divorciado/a', 'Viudo/a']" required />
                                 <x-input-group label="Lugar de Origen" name="lugar_origen" required />
@@ -30,7 +30,7 @@
                         </section>
 
                         <!-- Antecedentes Familiares -->
-                        <section>
+                        <sectiontion>
                             <h3 class="mb-6 text-2xl font-semibold text-center text-gray-800 dark:text-gray-900">Antecedentes Familiares</h3>
                             <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
                                 <x-checkbox-group label="Hipertensión Arterial (HTA)" name="hta_familiar" />
@@ -40,8 +40,7 @@
                                 <x-checkbox-group label="Dislipidemia" name="dislipidemia_familiar" />
                                 <x-input-group label="Otros" name="otros_familiares" placeholder="Especificar" />
                             </div>
-                        </section>
-
+                        </sectiontion>
                         <!-- Antecedentes Personales -->
                         <section>
                             <h3 class="mb-6 text-2xl font-semibold text-center text-gray-800 dark:text-gray-900">Antecedentes Personales</h3>
@@ -70,20 +69,24 @@
                         <!-- Signos Vitales -->
                         <section>
                             <h3 class="mb-6 text-2xl font-semibold text-center text-gray-800 dark:text-gray-900">Signos Vitales</h3>
-                            <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-                                <x-input-group label="Tensión Arterial (TA) (mmHg)" name="ta" required />
-                                <x-input-group label="Frecuencia Cardíaca (FC) (lpm)" name="fc" required />
-                                <x-input-group label="Frecuencia Respiratoria (FR) (rpm)" name="fr" required />
-                                <x-input-group label="Temperatura Corporal (°C)" name="temperatura" required />
-                                <x-input-group label="Saturación de Oxígeno (SpO2) (%)" name="spo2" required />
+                            <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+                                <x-input-group label="Presión Arterial (mmHg)" name="presion_arterial" placeholder="Ej: 120/80" required />
+                                <x-input-group label="Frecuencia Cardíaca (lpm)" name="frecuencia_cardiaca" placeholder="Ej: 70" required />
+                                <x-input-group label="Frecuencia Respiratoria (rpm)" name="frecuencia_respiratoria" placeholder="Ej: 18" required />
+                                <x-input-group label="Temperatura (°C)" name="temperatura" placeholder="Ej: 36.5" required />
+                                <x-input-group label="Saturación de Oxígeno (%)" name="saturacion_oxigeno" placeholder="Ej: 98" required />
                             </div>
                         </section>
+
 
                         <!-- Botón Guardar -->
                         <div class="flex justify-center mt-10">
                             <button type="submit" class="px-6 py-3 text-lg font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
                                 Guardar
                             </button>
+                            @if ($errors)
+                            {{$errors}}
+                            @endif
                         </div>
                     </form>
                 </div>
@@ -93,6 +96,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+
             const pesoInput = document.getElementById('peso');
             const alturaInput = document.getElementById('altura');
             const imcInput = document.getElementById('imc');
