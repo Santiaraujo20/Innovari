@@ -24,33 +24,39 @@ class Paciente extends Model
         // Añadir otros campos según sea necesario
     ];
 
-    // Relación uno a muchos con SignoVital
+    // Relación uno a uno con SignosVitales
     public function signosVitales()
     {
-        return $this->hasMany(SignoVital::class); // Cambiado a SignoVital
+        return $this->hasOne(SignosVitales::class, 'paciente_id');
     }
 
     // Relación uno a uno con AntecedentesFamiliares
     public function antecedentesFamiliares()
     {
-        return $this->hasOne(AntecedenteFamiliar::class);
+        return $this->hasOne(AntecedentesFamiliares::class, 'paciente_id');
     }
 
     // Relación uno a uno con AntecedentesPersonales
     public function antecedentesPersonales()
     {
-        return $this->hasOne(AntecedentePersonal::class);
+        return $this->hasOne(AntecedentesPersonales::class, 'paciente_id');
+    }
+
+    // Relación uno a uno con ParametrosAntropometricos
+    public function parametrosAntropometricos()
+    {
+        return $this->hasOne(ParametrosAntropometricos::class, 'paciente_id');
     }
 
     // Relación uno a muchos con Medicacion
     public function medicaciones()
     {
-        return $this->hasMany(Medicacion::class);
+        return $this->hasMany(Medicacion::class, 'paciente_id');
     }
 
     // Relación uno a muchos con Intervencion
     public function intervenciones()
     {
-        return $this->hasMany(Intervencion::class);
+        return $this->hasMany(Intervencion::class, 'paciente_id');
     }
 }

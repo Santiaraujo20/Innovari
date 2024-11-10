@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class AntecedentePersonal extends Model
+class AntecedentesPersonales extends Model
 {
     use HasFactory;
 
@@ -20,6 +20,7 @@ class AntecedentePersonal extends Model
         'embarazo',
         'cirugias_previas',
     ];
+    public $table = 'antecedentes_personales';
 
     // Relación inversa con Paciente (uno a uno)
     public function paciente()

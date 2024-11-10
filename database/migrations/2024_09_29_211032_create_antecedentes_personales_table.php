@@ -19,7 +19,7 @@ return new class extends Migration
         $table->boolean('cancer')->default(false);
         $table->boolean('dislipidemia')->default(false);
         $table->boolean('obesidad')->default(false);
-        $table->boolean('alergias')->default(false);
+        $table->string('alergias')->nullable();
         $table->boolean('embarazo')->default(false);
         $table->text('cirugias_previas')->nullable();
         $table->timestamps();

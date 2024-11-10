@@ -16,7 +16,7 @@ return new class extends Migration
         $table->foreignId('paciente_id')->constrained('pacientes');
         $table->boolean('hipertension')->default(false);
         $table->boolean('diabetes')->default(false);
-        $table->string('cancer')->default(false);
+        $table->string('cancer')->nullable();
         $table->boolean('obesidad')->default(false);
         $table->boolean('dislipidemia')->default(false);
         $table->text('otros')->nullable();
